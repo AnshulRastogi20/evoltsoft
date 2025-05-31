@@ -109,7 +109,3 @@ mongodb+srv://anshulrastogi20:TUEwtr4LX4Itz3hU@cluster0.jcqy0da.mongodb.net/evol
 - Backend: `GET /api/health`
 - Frontend: Check browser console for errors
 - Database: MongoDB Atlas monitoring dashboard
-
----
-
-**Need help?** Check `DEPLOYMENT.md` for detailed instructions or `DEPLOYMENT_CHECKLIST.md` for verification steps.

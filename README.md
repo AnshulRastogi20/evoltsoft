@@ -4,7 +4,6 @@
 
 A comprehensive full-stack web application for managing electric vehicle charging stations with real-time monitoring, location-based services, and user management.
 
-> **Quick Deploy**: See `PRODUCTION_READY.md` for instant deployment guide!
 > **MongoDB**: Pre-configured and tested ✅
 > **Security**: Production-grade JWT & rate limiting ✅
 > **UI**: Responsive full-width design ✅
@@ -65,9 +64,9 @@ A comprehensive full-stack web application for managing electric vehicle chargin
 - **Vue Toastification** for notifications
 
 ### DevOps & Deployment
-- **Docker** & Docker Compose
-- **Nginx** for frontend serving
-- **MongoDB** containerized database
+- **MongoDB Atlas** for cloud database
+- **Render** for backend hosting
+- **Vercel** for frontend hosting
 - Health checks and monitoring
 
 ## 📁 Project Structure
@@ -83,7 +82,6 @@ evoltsoft/
 │   ├── utils/                 # Utility functions
 │   ├── seedDatabase.js        # Database seeding script
 │   ├── server.js              # Main server file
-│   ├── Dockerfile             # Backend containerization
 │   └── .env                   # Environment variables
 ├── frontend/                   # Vue.js application
 │   ├── src/
@@ -92,17 +90,15 @@ evoltsoft/
 │   │   ├── stores/            # Pinia stores
 │   │   ├── services/          # API services
 │   │   └── router/            # Vue Router config
-│   ├── Dockerfile             # Frontend containerization
-│   └── nginx.conf             # Nginx configuration
-└── docker-compose.yml         # Multi-container setup
+│   └── .env                   # Environment variables
+└── README.md                   # Project documentation
 ```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
-- MongoDB 7.0+ (for local development)
-- Docker & Docker Compose (for containerized deployment)
+- MongoDB 7.0+ (for local development) or MongoDB Atlas account
 - Git
 
 ### System Requirements
@@ -114,14 +110,6 @@ evoltsoft/
 
 ### Option 1: Automated Setup (Recommended for beginners)
 
-#### Windows:
-```bash
-git clone <repository-url>
-cd evoltsoft
-start-dev.bat
-```
-
-#### Linux/macOS:
 ```bash
 git clone <repository-url>
 cd evoltsoft
@@ -137,7 +125,7 @@ chmod +x start-dev.sh
    cd evoltsoft
    ```
 
-2. **Install MongoDB locally** (if not using Docker)
+2. **Install MongoDB locally** (if not using MongoDB Atlas)
    - Download from https://www.mongodb.com/try/download/community
    - Start MongoDB service on port 27017
 
@@ -168,21 +156,9 @@ chmod +x start-dev.sh
    npm run dev     # Start development server
    ```
 
-5. **Access the application**
-   - Frontend: http://localhost:5173
+5. **Access the application**   - Frontend: http://localhost:5173
    - Backend API: http://localhost:3000
    - API Documentation: http://localhost:3000/api-docs
-
-### Option 3: Docker Deployment (Production)
-
-1. **Using Docker Compose**
-   ```bash
-   docker-compose up -d
-   ```
-
-2. **Access the application**
-   - Frontend: http://localhost
-   - Backend API: http://localhost:3000
 
 ## 🔑 Default Test Accounts
 
@@ -281,44 +257,49 @@ The application is fully responsive and works on:
 **Automated setup for MongoDB Atlas + Render + Vercel**
 
 ```bash
-# Windows
-./deploy-prod.bat
-
-# Linux/macOS
+# Linux/macOS/Windows with bash
 chmod +x deploy-prod.sh
 ./deploy-prod.sh
 ```
 
-📚 **Follow these guides:**
-- **Quick Start**: [QUICK_DEPLOY.md](./QUICK_DEPLOY.md) - 10-minute setup
-- **Detailed Guide**: [DEPLOYMENT.md](./DEPLOYMENT.md) - Complete instructions
-- **Environment Setup**: [ENV_CONFIG.md](./ENV_CONFIG.md) - Configuration reference
-- **Verification**: [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md) - Post-deployment checks
+#### Prerequisites
+- MongoDB Atlas account
+- Render account  
+- Vercel account
 
-### 2. Docker Deployment (Self-hosting)
-```bash
-# Production deployment
-docker-compose up -d
+#### MongoDB Atlas Setup
+Your MongoDB Atlas is pre-configured:
+- **Connection String**: `mongodb+srv://cluster0.jcqy0da.mongodb.net/`
+- **Username**: `anshulrastogi20`
+- **Database**: `evoltsoft`
 
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
+Complete connection string for deployment:
+```
+mongodb+srv://anshulrastogi20:TUEwtr4LX4Itz3hU@cluster0.jcqy0da.mongodb.net/evoltsoft?retryWrites=true&w=majority
 ```
 
-### 3. Production Cloud Deployment (Manual)
-**Stack**: MongoDB Atlas + Render + Vercel
+#### Backend Deployment (Render)
+1. Connect GitHub repository to Render
+2. Create new Web Service
+3. Set Root Directory: `backend`
+4. Build Command: `npm install --production`
+5. Start Command: `npm start`
+6. Add environment variables (see deploy script)
 
-**Manual setup:**
+#### Frontend Deployment (Vercel)
+1. Connect GitHub repository to Vercel
+2. Set Root Directory: `frontend`
+3. Build Command: `npm run build`
+4. Add environment variables pointing to Render backend URL
+
+### 2. Manual Cloud Deployment
 1. Fork this repository
-2. Follow the detailed [DEPLOYMENT.md](./DEPLOYMENT.md) guide
-3. Deploy in this order:
+2. Deploy in this order:
    - Setup MongoDB Atlas (Database)
    - Deploy backend to Render
    - Deploy frontend to Vercel
 
-### 4. Alternative Cloud Options
+### 3. Alternative Cloud Options
 - **Database**: MongoDB Atlas, AWS DocumentDB, Google Firestore
 - **Backend**: Heroku, Railway, DigitalOcean App Platform, AWS Elastic Beanstalk
 - **Frontend**: Netlify, GitHub Pages, AWS S3 + CloudFront, Firebase Hosting
@@ -355,7 +336,7 @@ kill -9 <process_id>
 #### 2. "Cannot connect to MongoDB"
 - Ensure MongoDB is running on port 27017
 - Check firewall settings
-- For Docker: `docker-compose logs mongodb`
+- Check MongoDB Atlas connection string and whitelist
 
 #### 3. "Frontend shows blank page"
 - Check browser console for JavaScript errors
