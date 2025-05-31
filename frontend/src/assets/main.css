@@ -1,0 +1,55 @@
+@import './base.css';
+
+/* Reset default styles for full-width app */
+#app {
+  width: 100% !important;
+  min-height: 100vh;
+  font-weight: normal;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Global link styles */
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+/* Remove constraining styles */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  overflow-x: hidden;
+}
+
+/* Ensure container elements take full width */
+.container-fluid {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Custom container with max-width for content sections only */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Debug styles to identify layout issues */
+.debug-width {
+  border: 2px solid red !important;
+  background: rgba(255, 0, 0, 0.1) !important;
+}
