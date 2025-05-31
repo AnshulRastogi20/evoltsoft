@@ -11,14 +11,17 @@ const ChargingStation = require('./models/ChargingStation');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
+    // Use production MongoDB URI or fallback to environment variable
+    const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://anshulrastogi20:TUEwtr4LX4Itz3hU@cluster0.jcqy0da.mongodb.net/evoltsoft?retryWrites=true&w=majority';
+    
+    await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 30000,
       socketTimeoutMS: 45000,
       family: 4
     });
-    console.log('Connected to MongoDB Atlas');
+    console.log('Connected to MongoDB Atlas:', mongoURI.split('@')[1].split('/')[0]);
   } catch (error) {
     console.error('Database connection error:', error);
     process.exit(1);

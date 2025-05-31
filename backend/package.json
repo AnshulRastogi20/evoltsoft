@@ -8,7 +8,10 @@
     "seed": "node seedDatabase.js",
     "seed:prod": "node seedProduction.js",
     "build": "echo 'No build step required for Node.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'No tests configured'",
+    "health": "curl -f http://localhost:3000/health || exit 1",
+    "prestart": "echo 'Starting EVoltSoft Backend Server...'",
+    "postinstall": "echo 'Backend dependencies installed successfully'"
   },
   "keywords": ["electric-vehicle", "charging-station", "management"],
   "author": "",

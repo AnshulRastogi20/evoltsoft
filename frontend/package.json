@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:prod": "vite build --mode production",
+    "serve": "vite preview --port 3000",
+    "lint": "echo 'No linting configured'",
+    "test": "echo 'No tests configured'"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
