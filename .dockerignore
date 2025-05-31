@@ -1,0 +1,3 @@
+# Force Render to use Node.js instead of Docker
+Dockerfile*
+docker-compose*
