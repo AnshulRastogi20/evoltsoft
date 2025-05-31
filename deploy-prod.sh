@@ -7,6 +7,7 @@ set -e  # Exit on any error
 
 echo "🚀 EVoltSoft Production Deployment Setup"
 echo "========================================"
+echo "MongoDB Atlas + Render + Netlify = Production Ready!"
 
 # Colors for output
 RED='\033[0;31m'
@@ -45,8 +46,8 @@ print_info "Checking project structure..."
 required_files=(
     "frontend/package.json"
     "backend/package.json"
-    "frontend/vercel.json"
-    "backend/render.yaml"
+    "frontend/netlify.toml"
+    "render.yaml"
     "DEPLOYMENT.md"
     "ENV_CONFIG.md"
 )
@@ -121,10 +122,10 @@ echo "   - Connect your GitHub repository"
 echo "   - Use the render.yaml configuration"
 echo "   - Set environment variables in Render dashboard"
 echo
-echo "3. Deploy frontend to Vercel:"
+echo "3. Deploy frontend to Netlify:"
 echo "   - Connect your GitHub repository"
-echo "   - Vercel will auto-detect the configuration"
-echo "   - Set environment variables in Vercel dashboard"
+echo "   - Netlify will auto-detect the configuration"
+echo "   - Set environment variables in Netlify dashboard"
 echo
 echo "4. Update environment variables:"
 echo "   - See ENV_CONFIG.md for detailed instructions"
@@ -145,7 +146,7 @@ Generated on: $(date)
 - [x] Frontend built for production
 - [x] Backend health checks configured
 - [x] Render configuration ready
-- [x] Vercel configuration ready
+- [x] Netlify configuration ready
 
 ## 🔧 Manual Tasks Required
 
@@ -162,7 +163,7 @@ Generated on: $(date)
 - [ ] Set environment variables
 - [ ] Verify deployment
 
-### 3. Vercel Deployment
+### 3. Netlify Deployment
 - [ ] Connect GitHub repository
 - [ ] Set environment variables
 - [ ] Deploy frontend
@@ -170,7 +171,7 @@ Generated on: $(date)
 
 ### 4. Environment Configuration
 - [ ] Update MONGODB_URI in Render
-- [ ] Update VITE_API_BASE_URL in Vercel
+- [ ] Update VITE_API_BASE_URL in Netlify
 - [ ] Update CORS_ORIGIN in Render
 - [ ] Test end-to-end functionality
 
@@ -183,7 +184,7 @@ Generated on: $(date)
 - [ ] CORS_ORIGIN
 - [ ] FRONTEND_URL
 
-### Vercel (Frontend)
+### Netlify (Frontend)
 - [ ] VITE_API_BASE_URL
 - [ ] VITE_APP_NAME
 - [ ] VITE_APP_ENV=production
@@ -191,7 +192,7 @@ Generated on: $(date)
 ## 🔗 Useful Links
 - [MongoDB Atlas](https://cloud.mongodb.com)
 - [Render Dashboard](https://dashboard.render.com)
-- [Vercel Dashboard](https://vercel.com/dashboard)
+- [Netlify Dashboard](https://app.netlify.com)
 
 EOF
 

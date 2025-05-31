@@ -28,7 +28,7 @@ const corsOptions = {
       'http://localhost:3000',
       'http://localhost:5173',
       'http://localhost:8080',
-      'https://your-vercel-app.vercel.app' // Will be updated with actual Vercel URL
+      'https://your-netlify-app.netlify.app' // Will be updated with actual Netlify URL
     ].filter(Boolean);
     
     if (allowedOrigins.includes(origin)) {

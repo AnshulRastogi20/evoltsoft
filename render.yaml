@@ -6,6 +6,7 @@ services:
     env: node
     region: oregon
     plan: starter
+    rootDir: backend
     buildCommand: npm install --production
     startCommand: npm start
     envVars:
@@ -18,11 +19,10 @@ services:
       - key: JWT_SECRET
         generateValue: true  # Render will generate a secure value
       - key: JWT_EXPIRES_IN
-        value: 7d
-      - key: FRONTEND_URL
-        sync: false  # Set manually to your Vercel URL
+        value: 7d      - key: FRONTEND_URL
+        sync: false  # Set manually to your Netlify URL
       - key: CORS_ORIGIN
-        sync: false  # Set manually to your Vercel URL
+        sync: false  # Set manually to your Netlify URL
       - key: RATE_LIMIT_WINDOW_MS
         value: 900000
       - key: RATE_LIMIT_MAX_REQUESTS

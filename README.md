@@ -1,6 +1,6 @@
 # EVoltSoft - Electric Vehicle Charging Station Management System 🚗⚡
 
-**🎉 PRODUCTION READY! Deploy in 6 minutes with MongoDB Atlas, Render & Vercel**
+**🎉 PRODUCTION READY! Deploy in 6 minutes with MongoDB Atlas, Render & Netlify**
 
 A comprehensive full-stack web application for managing electric vehicle charging stations with real-time monitoring, location-based services, and user management.
 
@@ -66,7 +66,7 @@ A comprehensive full-stack web application for managing electric vehicle chargin
 ### DevOps & Deployment
 - **MongoDB Atlas** for cloud database
 - **Render** for backend hosting
-- **Vercel** for frontend hosting
+- **Netlify** for frontend hosting
 - Health checks and monitoring
 
 ## 📁 Project Structure
@@ -254,7 +254,7 @@ The application is fully responsive and works on:
 ## 🚀 Deployment Options
 
 ### 1. Quick Production Deployment (Recommended) ⚡
-**Automated setup for MongoDB Atlas + Render + Vercel**
+**Automated setup for MongoDB Atlas + Render + Netlify**
 
 ```bash
 # Linux/macOS/Windows with bash
@@ -265,7 +265,7 @@ chmod +x deploy-prod.sh
 #### Prerequisites
 - MongoDB Atlas account
 - Render account  
-- Vercel account
+- Netlify account
 
 #### MongoDB Atlas Setup
 Your MongoDB Atlas is pre-configured:
@@ -286,18 +286,19 @@ mongodb+srv://anshulrastogi20:TUEwtr4LX4Itz3hU@cluster0.jcqy0da.mongodb.net/evol
 5. Start Command: `npm start`
 6. Add environment variables (see deploy script)
 
-#### Frontend Deployment (Vercel)
-1. Connect GitHub repository to Vercel
+#### Frontend Deployment (Netlify)
+1. Connect GitHub repository to Netlify
 2. Set Root Directory: `frontend`
 3. Build Command: `npm run build`
-4. Add environment variables pointing to Render backend URL
+4. Publish Directory: `dist`
+5. Add environment variables pointing to Render backend URL
 
 ### 2. Manual Cloud Deployment
 1. Fork this repository
 2. Deploy in this order:
    - Setup MongoDB Atlas (Database)
    - Deploy backend to Render
-   - Deploy frontend to Vercel
+   - Deploy frontend to Netlify
 
 ### 3. Alternative Cloud Options
 - **Database**: MongoDB Atlas, AWS DocumentDB, Google Firestore
@@ -371,7 +372,7 @@ cd frontend && npm run dev -- --debug
 
 ### Quick Deploy to Cloud ☁️
 
-**MongoDB Atlas + Render + Vercel = Production Ready!**
+**MongoDB Atlas + Render + Netlify = Production Ready!**
 
 #### 1. **One-Click Setup** (1 minute)
 ```bash
@@ -388,11 +389,11 @@ cd frontend && npm run dev -- --debug
 - Root Directory: `backend`
 - Environment variables are pre-configured ✅
 
-#### 3. **Deploy Frontend to Vercel** (2 minutes)  
-- Go to [Vercel Dashboard](https://vercel.com/dashboard)
+#### 3. **Deploy Frontend to Netlify** (2 minutes)  
+- Go to [Netlify Dashboard](https://app.netlify.com)
 - Import GitHub repo
 - Root Directory: `frontend`
-- Auto-detects Vite framework ✅
+- Auto-detects build settings from netlify.toml ✅
 
 > **📖 Detailed Guides Available:**
 > - `PRODUCTION_READY.md` - Complete status & 6-minute guide
