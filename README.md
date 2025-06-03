@@ -34,14 +34,12 @@ A comprehensive full-stack web application for managing electric vehicle chargin
 ### 📊 Dashboard & Analytics
 - Statistics overview (total stations, active stations, etc.)
 - Advanced filtering and search capabilities
-- Bulk operations support
-- Export functionality
+- Individual station management
 
 ### 👤 User Profile Management
 - Personal information management
-- Password change functionality
-- Activity tracking
-- Data export capabilities
+- Basic data export capabilities (personal data only)
+- Account management
 
 ## 🛠️ Technology Stack
 
@@ -52,7 +50,7 @@ A comprehensive full-stack web application for managing electric vehicle chargin
 - **bcryptjs** for password hashing
 - **Helmet** for security headers
 - **express-rate-limit** for rate limiting
-- **Joi** for input validation
+- **express-validator** for input validation
 
 ### Frontend
 - **Vue.js 3** with Composition API
@@ -156,9 +154,9 @@ chmod +x start-dev.sh
    npm run dev     # Start development server
    ```
 
-5. **Access the application**   - Frontend: http://localhost:5173
+5. **Access the application**
+   - Frontend: http://localhost:5173
    - Backend API: http://localhost:3000
-   - API Documentation: http://localhost:3000/api-docs
 
 ## 🔑 Default Test Accounts
 
@@ -207,17 +205,18 @@ After running the seed script, you can use these test accounts:
 ## 🔌 API Endpoints
 
 ### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/me` - Get current user
+- `POST /auth/register` - User registration
+- `POST /auth/login` - User login
+- `GET /auth/profile` - Get current user
+- `PUT /auth/profile` - Update user profile
 
 ### Charging Stations
-- `GET /api/stations` - Get all stations (with filters)
-- `POST /api/stations` - Create new station
-- `GET /api/stations/:id` - Get station by ID
-- `PUT /api/stations/:id` - Update station
-- `DELETE /api/stations/:id` - Delete station
-- `GET /api/stations/nearby` - Find nearby stations
+- `GET /stations` - Get all stations (with filters)
+- `POST /stations` - Create new station
+- `GET /stations/:id` - Get station by ID
+- `PUT /stations/:id` - Update station
+- `DELETE /stations/:id` - Delete station
+- `GET /stations/nearby/:longitude/:latitude` - Find nearby stations
 
 ## 🎨 Frontend Components
 
